@@ -1,0 +1,147 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  background-color: #fdfdff;
+}
+
+main {
+  padding: 50px;
+  margin-top: 80px;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.container1 h1,
+.container1 p {
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+}
+
+.box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container1,
+.container2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container1 {
+  margin-left: 180px;
+}
+
+.container2 {
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.info p {
+  margin-left: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 450px;
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.box form input {
+  height: 15px;
+}
+
+.box form input,
+.box form textarea,
+.box form button {
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+}
+
+.box form input,
+.box form textarea {
+  background-color: #f5f4fc;
+  padding: 10px;
+}
+
+.box form textarea {
+  resize: none;
+}
+
+.box form button {
+  width: 40%;
+  height: 40px;
+  background-color: rgb(70, 78, 88);
+  color: white;
+}
+
+.box form button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1500px) {
+  .box {
+    width: 55%;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .form-container {
+    flex-direction: column;
+  }
+
+  .container1 {
+    margin: 0;
+  }
+
+  .box {
+    width: 40%;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 750px) {
+  main {
+    margin-top: 100px;
+  }
+
+  .box {
+    width: 70%;
+  }
+}

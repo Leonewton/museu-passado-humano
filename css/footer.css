@@ -1,0 +1,83 @@
+footer {
+  background-color: rgb(0, 0, 0);
+  color: #bcbcbc;
+  padding: 5px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+footer form input#email-footer {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #2d2d2d;
+  outline: none;
+  width: 400px;
+  padding: 10px;
+  font-size: 3vh;
+  margin-right: 20px;
+  color: #bcbcbc;
+}
+
+footer form input#submit-footer {
+  background: transparent;
+  border: 1px solid #2d2d2d;
+  outline: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  color: #bcbcbc;
+}
+
+footer form input#submit-footer:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+  justify-content: space-between;
+}
+
+.newsletter,
+.logo-rodape {
+  flex: 1;
+}
+
+.logo-rodape {
+  display: flex;
+  justify-content: end;
+}
+
+.logo-rodape img {
+  height: 100px;
+  width: auto;
+  padding: 10px;
+}
+
+.newsletter h3 {
+  color: #fff;
+}
+
+.copyright {
+  border-top: 1px solid #bdbdbd;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.copyright p {
+  padding: 15px;
+}
+
+@media (max-width: 800px) {
+  footer form {
+    display: grid;
+  }
+
+  footer form input#email-footer {
+    width: 200px;
+    font-size: 2vh;
+    margin-bottom: 10px;
+  }
+}
