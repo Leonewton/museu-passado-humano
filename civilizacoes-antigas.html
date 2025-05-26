@@ -26,6 +26,7 @@
         <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
         <a href="era-digital.html">ERA DIGITAL</a>
         <a href="fale-conosco.html">FALE CONOSCO</a>
+        <a href="login.html">AGENDAR VISITA</a>
       </nav>
     </header>
 
@@ -372,7 +373,7 @@
             VAMOS EXPLORAR A HISTÓRIA JUNTOS. ENVIE-ME ATUALIZAÇÕES DA
             NEWSLETTER.
           </h3>
-          <form action="">
+          <form onsubmit="cadastrarNewsletter(event)">
             <input
               type="email"
               name="email"
@@ -399,5 +400,7 @@
         <p>© 2025 Museu Passado Humano. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <script src="scripts/newsletter.js"></script>
   </body>
 </html>

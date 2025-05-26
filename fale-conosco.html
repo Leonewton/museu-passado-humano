@@ -26,6 +26,7 @@
         <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
         <a href="era-digital.html">ERA DIGITAL</a>
         <a href="fale-conosco.html">FALE CONOSCO</a>
+        <a href="login.html">AGENDAR VISITA</a>
       </nav>
     </header>
 
@@ -59,7 +60,7 @@
           <div class="container2">
             <div class="box">
               <h2>Envie-nos uma mensagem</h2>
-              <form>
+              <form onsubmit="enviarMensagem(event)">
                 <input
                   type="text"
                   id="nome"
@@ -105,7 +106,7 @@
             VAMOS EXPLORAR A HISTÓRIA JUNTOS. ENVIE-ME ATUALIZAÇÕES DA
             NEWSLETTER.
           </h3>
-          <form action="">
+          <form onsubmit="cadastrarNewsletter(event)">
             <input
               type="email"
               name="email"
@@ -132,5 +133,8 @@
         <p>© 2025 Museu Passado Humano. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <script src="scripts/fale-conosco.js"></script>
+    <script src="scripts/newsletter.js"></script>
   </body>
 </html>

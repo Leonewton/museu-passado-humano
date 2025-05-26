@@ -26,6 +26,7 @@
         <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
         <a href="era-digital.html">ERA DIGITAL</a>
         <a href="fale-conosco.html">FALE CONOSCO</a>
+        <a href="login.html">AGENDAR VISITA</a>
       </nav>
     </header>
 
@@ -246,7 +247,7 @@
 
     <section class="flex">
       <div class="flex1">
-        <h1>Locomotiva a Vapor – George Stephenson</h1>
+        <h1>Locomotiva a Vapor - George Stephenson</h1>
 
         <p>
           Durante a Revolução Industrial, uma das invenções mais transformadoras
@@ -367,7 +368,7 @@
       </div>
 
       <div class="flex">
-        <div class="item1">
+        <div class="item-main1">
           <p>
             As ferrovias foram cruciais para acelerar o comércio e integrar
             mercados em nível nacional e internacional. Elas possibilitaram a
@@ -410,28 +411,11 @@
             <li>O Trabalho Ferroviário e a Criação de Novas Profissões.</li>
           </ul>
         </div>
-        <div class="item2">
+        <div class="item-main2">
           <img src="imagens/trem.png" alt="imagem-trem" />
         </div>
       </div>
     </section>
-
-    <!--
-    <section
-      class="section"
-      style="background-image: url('imagens/1900-industria.jpg')"
-    >
-      <div class="overlay"></div>
-      <div class="content">
-        <h2>GALERIA DE FOTOS E ILUSTRAÇÕES</h2>
-        <p>TEXTO PARA ALTERAR.</p>
-      </div>
-    </section>
-    
-    <section>
-      <div class="content"></div>
-    </section>
-    -->
 
     <footer>
       <div class="container">
@@ -440,7 +424,7 @@
             VAMOS EXPLORAR A HISTÓRIA JUNTOS. ENVIE-ME ATUALIZAÇÕES DA
             NEWSLETTER.
           </h3>
-          <form action="">
+          <form onsubmit="cadastrarNewsletter(event)">
             <input
               type="email"
               name="email"
@@ -467,5 +451,7 @@
         <p>© 2025 Museu Passado Humano. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <script src="scripts/newsletter.js"></script>
   </body>
 </html>

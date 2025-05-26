@@ -1,0 +1,48 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+}
+
+.menu-lateral {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #dee2e6;
+}
+
+.menu-lateral img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+}
+
+.menu-lateral .nav-link {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.btn-agendamento {
+  background-color: #5a3ea1;
+  border-color: #5a3ea1;
+}
+
+.btn-agendamento:hover {
+  background-color: #4a338a;
+  border-color: #4a338a;
+}
+
+.conteudo-principal {
+  flex: 1;
+  padding: 30px;
+}

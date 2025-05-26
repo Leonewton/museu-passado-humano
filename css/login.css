@@ -1,0 +1,16 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+main {
+  padding: 132px 0 50px;
+}
+
+.sombra-grande {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}

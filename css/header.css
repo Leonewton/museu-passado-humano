@@ -15,9 +15,13 @@ header {
   z-index: 1000;
 }
 
-.item1 {
-  text-align: left;
-  flex: 5;
+header a.item1 {
+  text-align: left !important;
+  flex: 1 !important;
+}
+
+header nav.item2 {
+  flex: 2 !important;
 }
 
 .item1 img {
@@ -30,7 +34,7 @@ header {
 nav {
   padding: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
   flex: 4;
