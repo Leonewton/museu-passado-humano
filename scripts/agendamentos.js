@@ -1,3 +1,10 @@
+if (localStorage.getItem("autenticado") !== "sim") {
+  window.location.href = "login.html";
+} else {
+  document.getElementById("nomeUsuario").textContent =
+    localStorage.getItem("nomeUsuario");
+}
+
 const lista = document.getElementById("listaAgendamentos");
 const agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
 
