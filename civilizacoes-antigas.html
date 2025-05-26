@@ -14,20 +14,7 @@
     <link rel="stylesheet" href="css/civilizacoes-antigas.css" />
   </head>
   <body>
-    <header>
-      <a href="#" class="item1"
-        ><img src="imagens/logo-branca.png" alt="logo-cabecalho"
-      /></a>
-
-      <nav class="item2">
-        <a href="home.html">HOME</a>
-        <a href="noticias.html">NOTÍCIAS</a>
-        <a href="civilizacoes-antigas.html">CIVILIZAÇÕES ANTIGAS</a>
-        <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
-        <a href="era-digital.html">ERA DIGITAL</a>
-        <a href="fale-conosco.html">FALE CONOSCO</a>
-        <a href="login.html">AGENDAR VISITA</a>
-      </nav>
+    <header id="header">
     </header>
 
     <section class="section" style="background-image: url('imagens/civilizacoes-capa.jpg')">
@@ -366,41 +353,10 @@
         </div>
       </section>            
 
-    <footer>
-      <div class="container">
-        <div class="newsletter">
-          <h3>
-            VAMOS EXPLORAR A HISTÓRIA JUNTOS. ENVIE-ME ATUALIZAÇÕES DA
-            NEWSLETTER.
-          </h3>
-          <form onsubmit="cadastrarNewsletter(event)">
-            <input
-              type="email"
-              name="email"
-              id="email-footer"
-              placeholder="Digite o e-mail"
-            />
-            <input type="submit" id="submit-footer" value="ENVIAR" />
-          </form>
-          <p>
-            Ao se inscrever em nossa newsletter, você poderá receber,
-            ocasionalmente, pesquisas e comunicações com conteúdos temáticos do
-            Museu Passado Humano por e-mail. Ao prosseguir, você declara estar
-            ciente e de acordo com o uso das suas informações conforme descrito
-            em nossa Política de Privacidade. Você pode cancelar sua inscrição a
-            qualquer momento, clicando no botão "Cancelar assinatura" na parte
-            inferior de qualquer e-mail enviado pelo Museu Passado Humano.
-          </p>
-        </div>
-        <div class="logo-rodape">
-          <img src="imagens/logo-branca.png" alt="logo-rodape" />
-        </div>
-      </div>
-      <div class="copyright">
-        <p>© 2025 Museu Passado Humano. Todos os direitos reservados.</p>
-      </div>
+    <footer id="footer">
     </footer>
 
     <script src="scripts/newsletter.js"></script>
+    <script src="scripts/carregar_header_footer.js"></script>
   </body>
 </html>
