@@ -1,22 +1,20 @@
-if (localStorage.getItem("autenticado") !== "sim") {
+const usuario = obterUsuarioLogado();
+
+if (!usuario) {
   window.location.href = "login.html";
-} else {
-  document.getElementById("nomeUsuario").textContent =
-    localStorage.getItem("nomeUsuario");
 }
 
 const lista = document.getElementById("listaAgendamentos");
-const agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
 
 function renderizarAgendamentos() {
   lista.innerHTML = "";
 
-  if (agendamentos.length === 0) {
+  if (usuario.agendamentos.length === 0) {
     lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
     return;
   }
 
-  agendamentos.forEach((item, index) => {
+  usuario.agendamentos.forEach((item, index) => {
     const card = document.createElement("div");
     card.className = "col-md-4";
 
@@ -26,7 +24,7 @@ function renderizarAgendamentos() {
               <h5 class="card-title">Agendamento ${index + 1}</h5>
               <p class="card-text"><strong>Data:</strong> ${item.data}</p>
               <p class="card-text"><strong>Hora:</strong> ${item.hora}</p>
-              <button class="btn btn-danger btn-sm" onclick="cancelarAgendamento(${index})">Cancelar agendamento</button>
+              <button class="btn btn-danger btn-sm" onclick="cancelarAgendamento(${index})">Cancelar</button>
             </div>
           </div>`;
     lista.appendChild(card);
@@ -34,9 +32,9 @@ function renderizarAgendamentos() {
 }
 
 function cancelarAgendamento(index) {
-  if (confirm("Tem certeza que deseja cancelar este agendamento?")) {
-    agendamentos.splice(index, 1);
-    localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
+  if (confirm("Deseja cancelar este agendamento?")) {
+    usuario.agendamentos.splice(index, 1);
+    salvarUsuariosNoLocalStorage();
     renderizarAgendamentos();
   }
 }

@@ -37,7 +37,6 @@
                 type="text"
                 class="form-control"
                 id="nome"
-                value="Fulano de Tal"
                 readonly
               />
             </div>
@@ -47,7 +46,6 @@
                 type="email"
                 class="form-control"
                 id="email"
-                value="fulano.tal@example.com"
                 readonly
               />
             </div>
@@ -57,7 +55,6 @@
                 type="tel"
                 class="form-control"
                 id="telefone"
-                value="(XX) XXXX-XXXX"
                 readonly
               />
             </div>
@@ -67,7 +64,6 @@
                 type="password"
                 class="form-control"
                 id="senha"
-                value="senhaSecreta123"
                 readonly
               />
               </div>
@@ -82,9 +78,10 @@
                 Editar
               </button>
               <button
-                type="submit"
+                type="button"
                 id="btnSalvar"
                 class="btn btn-success"
+                onclick="salvarEdicao()"
                 style="display: none"
               >
                 Salvar
@@ -104,6 +101,8 @@
       </div>
     </main>
 
+    <script src="scripts/usuarios.js"></script>
     <script src="scripts/dados.js"></script>
+
     </body>
 </html>

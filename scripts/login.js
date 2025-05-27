@@ -3,9 +3,8 @@ function verificarLogin() {
   const senha = document.getElementById("senha").value;
   const mensagemErro = document.getElementById("erro");
 
-  if (usuario === "Teste" && senha === "123") {
-    localStorage.setItem("autenticado", "sim");
-    localStorage.setItem("nomeUsuario", usuario);
+  if (autenticarUsuario(usuario, senha)) {
+    salvarUsuarioAtual(usuario);
     window.location.href = "perfil.html";
   } else {
     mensagemErro.style.display = "block";
