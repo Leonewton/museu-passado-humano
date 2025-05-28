@@ -1,0 +1,27 @@
+/* Estilização do botão que alterna o modo da página */
+#darkModeToggle {
+  position: fixed;
+  bottom: 4rem;
+  right: 1rem;
+  z-index: 9999;
+}
+
+/* Estilização inicial do body em modo escuro */
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
+
+body.dark-mode .btn {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
