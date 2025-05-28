@@ -1,147 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Museu Passado Humano - Revolução Industrial</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" type="imagens" href="imagens/favicon.ico" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/noticias.css" />
-  </head>
 
-  <body>
-    <header id="header">
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museu Passado Humano - Revolução Industrial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="shortcut icon" type="imagens" href="imagens/favicon.ico" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/noticias.css" />
+  <script src="scripts/noticias.js" defer></script>
+</head>
 
-    <main>
-      <section>
-        <div class="introducao">
+<body>
+  <header id="header">
+  </header>
+
+  <main>
+    <section>
+      <div class="introducao">
+        <div>
           <h1>Acompanhe as nossas últimas notícias! :)</h1>
           <p>Novidades, eventos e curiosidades do Museu Passado Humano.</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <article>
-          <div class="noticia-card">
-            <img
-              src="imagens/tendencias-para-industria-2025.webp"
-              alt="Casa Contectada"
-            />
-            <div>
-              <h3>Tendências tecnológicas para a indústria em 2025.</h3>
-              <p>21/04/2025</p>
-              <a href="#">Saiba mais</a>
-            </div>
+    <section id="noticias-filtro">
+      <div class="container" style="max-width: 900px;"></div>
+      <div class="p-4 rounded border shadow-sm">
+        <h4 class="fw-bold">
+          <span>Filtros</span>
+        </h4>
+        <div class="mb-3">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="busca-noticia" placeholder="Buscar em notícias..."
+              aria-label="Buscar em notícias">
+            <button class="btn btn-outline-secondary" type="button" id="clear-search">
+              <i class="bi bi-x-lg"></i>
           </div>
-        </article>
-
-        <article>
-          <div class="noticia-card">
-            <img
-              src="imagens/inteligencia-artificial.avif"
-              alt="Ilustração da IA"
-            />
-            <div>
-              <h3>Inteligência Artificial transforma o cotidiano em 2025.</h3>
-              <p>18/04/2025</p>
-              <a href="#">Saiba mais</a>
-            </div>
+        </div>
+        <div class="row justify-content-center g-2">
+          <div class="col-12 col-md-7">
+            <select id="ordem-data" class="form-select">
+              <option value="">Selecione a ordem de data</option>
+              <option value="recente" selected>Mais recentes</option>
+              <option value="antigo">Mais antigas</option>
+            </select>
           </div>
-        </article>
-
-        <article>
-          <div class="noticia-card">
-            <img
-              src="imagens/computacao-quantica.jpg"
-              alt="Ilustração Computação Quântica"
-            />
-            <div>
-              <h3>
-                Computação quântica e sustentabilidade: os próximos passos da
-                Era Digital.
-              </h3>
-              <p>17/04/2025</p>
-              <a href="#">Saiba mais</a>
-            </div>
+          <div class="col-12 col-md-5">
+            <select id="ordem-az" class="form-select">
+              <option value="" selected>Selecione a ordem alfabética</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
           </div>
-        </article>
+        </div>
+      </div>
+      </div>
+    </section>
 
-        <article>
-          <div class="noticia-card">
-            <img src="imagens/era-da-informacao.png" alt="Ilustração da IA" />
-            <div>
-              <h3>Era Digital: confira o nosso artigo.</h3>
-              <p>15/04/2025</p>
-              <a href="era-digital.html">Saiba mais</a>
-            </div>
-          </div>
-        </article>
+    <section id="noticias-lista">
+    </section>
+    <div class="text-center my-4">
+      <button id="load-more" class="btn btn-dark btn-lg">Mais publicações</button>
+    </div>
+  </main>
 
-        <article>
-          <div class="noticia-card">
-            <img
-              src="imagens/capa1.webp"
-              alt="Ilustração da Revolução Industrial"
-            />
-            <div>
-              <h3>Revolução Industrial: confira o nosso artigo.</h3>
-              <p>15/04/2025</p>
-              <a href="revolucao-industrial.html">Saiba mais</a>
-            </div>
-          </div>
-        </article>
+  <footer id="footer">
+  </footer>
 
-        <article>
-          <div class="noticia-card">
-            <img src="imagens/egito-antigo.jpg" alt="Ilustração Egito Antigo" />
-            <div>
-              <h3>
-                Novas descobertas arqueológicas em Luxor aprofundam o
-                conhecimento sobre o Egito Antigo.
-              </h3>
-              <p>12/04/2025</p>
-              <a href="#">Saiba mais</a>
-            </div>
-          </div>
-        </article>
+  <script src="scripts/newsletter.js"></script>
+  <script src="scripts/carregar_header_footer.js"></script>
+</body>
 
-        <article>
-          <div class="noticia-card">
-            <img
-              src="imagens/civilizacoes-antigas.jpg"
-              alt="Ilustração Civilizações Antigas"
-            />
-            <div>
-              <h3>Civilizações Antigas: confira o nosso artigo.</h3>
-              <p>09/04/2025</p>
-              <a href="civilizacoes-antigas.html">Saiba mais</a>
-            </div>
-          </div>
-        </article>
-
-        <article>
-          <div class="noticia-card">
-            <img src="imagens/noticias.jpg" alt="Ilustração Notícias" />
-            <div>
-              <h3>Notícias: confira a nova página do Museu Passado Humano.</h3>
-              <p>07/04/2025</p>
-              <a href="#">Saiba mais</a>
-            </div>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer id="footer">
-    </footer>
-
-    <script src="scripts/newsletter.js"></script>
-    <script src="scripts/carregar_header_footer.js"></script>
-  </body>
 </html>
