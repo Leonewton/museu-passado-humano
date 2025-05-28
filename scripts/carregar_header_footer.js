@@ -6,6 +6,7 @@ const conteudo_header = `
       <nav class="item2">
         <a href="home.html">HOME</a>
         <a href="noticias.html">NOTÍCIAS</a>
+        <a href="publicacoes.html">PUBLICAÇÕES</a>
         <a href="civilizacoes-antigas.html">CIVILIZAÇÕES ANTIGAS</a>
         <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
         <a href="era-digital.html">ERA DIGITAL</a>
