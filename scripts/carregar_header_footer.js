@@ -51,8 +51,18 @@ const conteudo_footer = `
       </div>
 `
 
+const modo_tema = `
+      <div id="darkModeToggle">
+            <button id="modeSwitchBtn" class="btn btn-light rounded-circle shadow" title="Alternar modo">
+			<i id="modeIcon" class="bi bi-moon-fill fs-4"></i>
+		</button>
+	</div>
+`
+
 const footer = document.getElementById("footer")
 const header = document.getElementById("header");
+const modo = document.getElementById("modo-tema");
 
 header.innerHTML = conteudo_header;
 footer.innerHTML = conteudo_footer;
+modo.innerHTML = modo_tema;
