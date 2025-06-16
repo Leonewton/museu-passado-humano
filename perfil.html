@@ -16,14 +16,7 @@
   </head>
   <body>
     <!-- Menu lateral -->
-    <aside class="menu-lateral">
-      <img src="imagens/perfil.jpg" alt="Foto de Perfil" />
-      <nav class="nav flex-column">
-        <a href="dados.html" class="nav-link">Meus dados</a>
-        <a href="agendamentos.html" class="nav-link">Meus agendamentos</a>
-        <button onclick="sair()" class="btn btn-danger mt-3">Sair</button>
-      </nav>
-    </aside>
+    <aside class="menu-lateral" id="aside-user"></aside>
 
     <!-- Conteúdo principal -->
     <main class="conteudo-principal">
@@ -79,6 +72,6 @@
 
     <script src="scripts/usuarios.js"></script>
     <script src="scripts/perfil.js"></script>
-
+    <script src="scripts/carregar_menu-lateral-user.js"></script>
   </body>
 </html>

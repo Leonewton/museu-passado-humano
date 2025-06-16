@@ -13,4 +13,10 @@ main {
 .sombra-grande {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  height: 35vh;
+}
+
+.text-danger {
+  text-align: center;
+  padding-top: 8px;
 }

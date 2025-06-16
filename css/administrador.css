@@ -1,0 +1,50 @@
+.card-admin {
+  width: 300px;
+  margin: 10px;
+  flex-shrink: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-admin img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-admin-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card-admin-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+#painel-noticias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#painel-mensagens .card {
+  transition: transform 0.2s ease;
+}
+#painel-mensagens .card:hover {
+  transform: scale(1.02);
+}
