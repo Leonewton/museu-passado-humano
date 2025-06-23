@@ -11,7 +11,7 @@ const conteudo_header = `
     <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
     <a href="era-digital.html">ERA DIGITAL</a>
     <a href="fale-conosco.html">FALE CONOSCO</a>
-    <a href="login.html">AGENDAR VISITA</a>
+    <a href="login.html">LOGIN</a>
   </nav>
 
   <button id="menu-toggle" class="menu-icon d-md-none">
@@ -27,7 +27,7 @@ const conteudo_header = `
     <a href="revolucao-industrial.html">REVOLUÇÃO INDUSTRIAL</a>
     <a href="era-digital.html">ERA DIGITAL</a>
     <a href="fale-conosco.html">FALE CONOSCO</a>
-    <a href="login.html">AGENDAR VISITA</a>
+    <a href="login.html">LOGIN</a>
   </div>
 `;
 

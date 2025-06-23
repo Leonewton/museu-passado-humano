@@ -10,3 +10,16 @@ function verificarLogin() {
     mensagemErro.style.display = "block";
   }
 }
+
+function verificarLoginAdmin() {
+  const administrador = document.getElementById("administrador").value;
+  const senha = document.getElementById("senha-adm").value;
+  const mensagemErro = document.getElementById("erro-adm");
+
+  if (autenticarAdmin(administrador, senha)) {
+    salvarAdministradorAtual(administrador);
+    window.location.href = "administrador.html";
+  } else {
+    mensagemErro.style.display = "block";
+  }
+}

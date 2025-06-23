@@ -250,3 +250,8 @@ function carregarPainelMensagens() {
       });
     });
 }
+
+function sair() {
+  localStorage.removeItem("adminLogado");
+  window.location.href = "login.html";
+}

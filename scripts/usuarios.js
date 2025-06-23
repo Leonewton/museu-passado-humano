@@ -29,8 +29,6 @@ function obterUsuarioLogado() {
 
 function salvarUsuariosNoLocalStorage() {
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-
 }
 
 function sair() {
