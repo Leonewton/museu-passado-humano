@@ -1,11 +1,16 @@
-let administradores = JSON.parse(localStorage.getItem("administradores")) || [
-  {
-    nome: "Admin",
-    email: "admin@teste.com",
-    telefone: "(84) 9 9999-9991",
-    senha: "123",
-  },
-];
+const firebaseUrl = "https://noticias-museu-d198e-default-rtdb.firebaseio.com/administradores.json";
+
+let administradores = [];
+
+async function carregarAdministradores() {
+  try {
+    const resposta = await fetch(firebaseUrl);
+    const dados = await resposta.json();
+    administradores = Object.values(dados || {});
+  } catch (erro) {
+    console.error("Erro ao buscar administradores:", erro);
+  }
+}
 
 function buscarAdministradorPorNome(nome) {
   return administradores.find((u) => u.nome === nome);
@@ -33,3 +38,6 @@ function salvarAdministradoresNoLocalStorage() {
 function sair() {
   localStorage.removeItem("adminLogado");
 }
+
+carregarAdministradores();
+

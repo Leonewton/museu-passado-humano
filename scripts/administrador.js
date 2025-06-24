@@ -2,6 +2,19 @@ const seletorPainel = document.getElementById("painel-seletor");
 const painelNoticias = document.getElementById("painel-noticias");
 const painelExposicoes = document.getElementById("painel-exposicoes");
 
+async function iniciarAdmin() {
+  await carregarAdministradores(); 
+  const admin = obterAdminLogado();
+
+  if (!admin) {
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("nomeUsuario").textContent = admin.nome;
+  }
+}
+
+iniciarAdmin();
+
 // Alternar painel exibido (Notícias cadastradas ou Mensagens)
 seletorPainel.addEventListener("change", () => {
   if (seletorPainel.value === "noticias") {
