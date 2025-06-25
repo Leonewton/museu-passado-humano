@@ -197,7 +197,9 @@ function carregarPainelPublicacoes() {
         // Botão para excluir
         card.querySelector(".btn-excluir").addEventListener("click", () => {
           if (confirm(`Confirma a exclusão da publicação "${pub.titulo}"?`)) {
-            deletarPublicacao(id)
+            banco
+              .ref(`publicacoes/${id}`)
+              .remove()
               .then(() => {
                 alert("Publicação excluída com sucesso!");
                 carregarPainelPublicacoes();
