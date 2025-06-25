@@ -1,4 +1,3 @@
-import { deletarPublicacao } from './publicacoes-services.js';
 const seletorPainel = document.getElementById("painel-seletor");
 const painelNoticias = document.getElementById("painel-noticias");
 const painelPublicacoes = document.getElementById("painel-publicacoes");
