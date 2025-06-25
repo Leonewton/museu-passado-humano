@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Museu Passado Humano - Revolução Industrial</title>
+  <title>Museu Passado Humano - Publicações</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <!-- Bootstrap CSS v5.2.1 -->
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/publicacoes.css" />
-  <script src="scripts/publicacoes.js" defer></script>
+  <script src="scripts/publicacoes.js" type="module"></script>
 </head>
 
 <body>
@@ -28,12 +28,12 @@
       <div class="introducao">
         <div>
           <h1>Acompanhe as nossas últimas publicações! :)</h1>
-          <p>Artigos, opiniões e exposições do Museu Passado Humano.</p>
+          <p>Artigos do Museu Passado Humano.</p>
         </div>
       </div>
     </section>
 
-    <section id="noticias-filtro">
+    <section id="publicacoes-filtro">
       <div class="container" style="max-width: 900px;"></div>
       <div class="p-4 rounded border shadow-sm">
         <h4 class="fw-bold">
@@ -41,7 +41,7 @@
         </h4>
         <div class="mb-3">
           <div class="input-group input-group-lg">
-            <input type="text" class="form-control" id="busca-noticia" placeholder="Buscar em publicações..."
+            <input type="text" class="form-control" id="busca-publicacao" placeholder="Buscar em publicações..."
               aria-label="Buscar em publicações">
             <button class="btn btn-outline-secondary" type="button" id="clear-search">
               <i class="bi bi-x-lg"></i>
@@ -67,25 +67,7 @@
       </div>
     </section>
 
-    <section id="noticias-lista">
-      <!-- <div class="container" style="max-width: 900px;"></div>
-      <div class="card mb-3" style="position: relative;">
-        <a href="#" class="stretched-link"></a>
-        <div class="row g-0">
-          <div class="col-md-3 d-flex align-items-stretch">
-            <img src="imagens/tendencias-para-industria-2025.webp" class="card-img img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-9">
-            <div class="card-body">
-              <h5 class="card-title">Título da notícia</h5>
-              <p class="descricao card-text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.</p>
-              <p class="data card-text"><small class="text-body-secondary">Publicado em: 27/05/2025</small></p>
-              <p class="card-text"><small class="text-body-secondary">Última atualização: 3 minutos atrás</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
+    <section id="publicacoes-lista">
     </section>
     <div class="text-center my-4">
       <button id="load-more" class="btn btn-dark btn-lg">Mais publicações</button>
@@ -94,6 +76,12 @@
 
   <footer id="footer">
   </footer>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <!-- Arquivo de configuração do Firebase -->
+  <script src="scripts/config_firebase.js"></script>
 
   <script src="scripts/newsletter.js"></script>
   <script src="scripts/carregar_header_footer.js"></script>
