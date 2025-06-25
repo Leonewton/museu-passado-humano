@@ -3,6 +3,7 @@ const conteudo_menu = `
       <nav class="nav flex-column">
         <a href="administrador.html" class="nav-link">Home</a>
         <a href="criar-noticia.html" class="nav-link">Criar notícia</a>
+        <a href="criar-publicacao.html" class="nav-link">Criar publicação</a>
         <button onclick="sair()" class="btn btn-danger mt-3">Sair</button>
       </nav>
 `;
