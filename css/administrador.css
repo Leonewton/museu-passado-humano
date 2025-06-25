@@ -45,6 +45,13 @@
 #painel-mensagens .card {
   transition: transform 0.2s ease;
 }
+
 #painel-mensagens .card:hover {
   transform: scale(1.02);
+}
+
+#painel-publicacoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
