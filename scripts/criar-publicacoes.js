@@ -1,4 +1,4 @@
-import { criarPublicacao } from './publicacoes-services.js';
+import { buscarPublicacaoPorId, atualizarPublicacao, criarPublicacao } from './publicacoes-services.js';
 
 function adicionarParagrafo() {
   const container = document.getElementById("container-paragrafos");
@@ -32,6 +32,55 @@ function removerImagem() {
   }
 }
 
+
+const params = new URLSearchParams(window.location.search);
+const idPublicacao = params.get('id');
+
+
+if (idPublicacao) {
+  buscarPublicacaoPorId(idPublicacao)
+    .then(pub => {
+      if (!pub) {
+        alert("Publicação não encontrada.");
+        window.location.href = "administrador.html";
+        return;
+      }
+
+      document.getElementById("imagem-capa").value = pub.capa;
+      document.getElementById("titulo-publicacao").value = pub.titulo;
+      document.getElementById("descricao-noticia").value = pub.descricao;
+
+
+      const containerParagrafos = document.getElementById("container-paragrafos");
+      containerParagrafos.innerHTML = "";
+      pub.paragrafos.forEach((texto) => {
+        const textarea = document.createElement("textarea");
+        textarea.className = "form-control mb-2 paragrafo";
+        textarea.rows = 3;
+        textarea.required = true;
+        textarea.value = texto;
+        containerParagrafos.appendChild(textarea);
+      });
+
+      const containerImagens = document.getElementById("container-imagens");
+      containerImagens.innerHTML = "";
+      pub.imagens.forEach((url) => {
+        const input = document.createElement("input");
+        input.type = "url";
+        input.className = "form-control mb-2 imagem";
+        input.required = true;
+        input.value = url;
+        containerImagens.appendChild(input);
+      });
+
+      document.querySelector('button[type="submit"]').textContent = "Salvar alterações";
+    })
+    .catch(err => {
+      alert("Erro ao carregar publicação para edição.");
+      console.error(err);
+    });
+}
+
 document.getElementById("formulario-publicacao").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -51,7 +100,7 @@ document.getElementById("formulario-publicacao").addEventListener("submit", func
     return;
   }
 
-  const publicacao = {
+  const publicacaoAtualizada = {
     capa,
     titulo,
     descricao,
@@ -61,16 +110,27 @@ document.getElementById("formulario-publicacao").addEventListener("submit", func
     tipo: "artigo"
   };
 
-  criarPublicacao(publicacao)
-    .then(() => {
-      alert("Publicação cadastrada com sucesso!");
-      e.target.reset();
-      window.location.href = "publicacoes.html";
-    })
-    .catch((err) => {
-      alert("Erro ao salvar publicação. Verifique o console.");
-      console.error(err);
-    });
+  if (idPublicacao) {
+    atualizarPublicacao(idPublicacao, publicacaoAtualizada)
+      .then(() => {
+        alert("Publicação atualizada com sucesso!");
+        window.location.href = "administrador.html";
+      })
+      .catch((err) => {
+        alert("Erro ao atualizar publicação. Verifique o console.");
+        console.error(err);
+      });
+  } else {
+    criarPublicacao(publicacaoAtualizada)
+      .then(() => {
+        alert("Publicação cadastrada com sucesso!");
+        e.target.reset();
+      })
+      .catch((err) => {
+        alert("Erro ao salvar publicação. Verifique o console.");
+        console.error(err);
+      });
+  }
 });
 
 window.adicionarParagrafo = adicionarParagrafo;
