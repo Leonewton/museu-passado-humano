@@ -1,9 +1,9 @@
 const seletorPainel = document.getElementById("painel-seletor");
 const painelNoticias = document.getElementById("painel-noticias");
-const painelExposicoes = document.getElementById("painel-exposicoes");
+const painelPublicacoes = document.getElementById("painel-publicacoes");
 
 async function iniciarAdmin() {
-  await carregarAdministradores(); 
+  await carregarAdministradores();
   const admin = obterAdminLogado();
 
   if (!admin) {
@@ -19,11 +19,19 @@ iniciarAdmin();
 seletorPainel.addEventListener("change", () => {
   if (seletorPainel.value === "noticias") {
     painelNoticias.style.display = "flex";
-    painelExposicoes.style.display = "none";
+    painelPublicacoes.style.display = "none";
+    painelMensagens.style.display = "none";
     carregarPainelNoticias();
+  } else if (seletorPainel.value === "publicacoes") {
+    painelNoticias.style.display = "none";
+    painelPublicacoes.style.display = "flex";
+    painelMensagens.style.display = "none";
+    carregarPainelPublicacoes();
   } else {
     painelNoticias.style.display = "none";
-    painelExposicoes.style.display = "block";
+    painelPublicacoes.style.display = "none";
+    painelMensagens.style.display = "block";
+    carregarPainelMensagens();
   }
 });
 
@@ -122,15 +130,115 @@ function carregarPainelNoticias() {
     });
 }
 
+function carregarPainelPublicacoes() {
+  painelPublicacoes.innerHTML = "<p>Carregando publicações...</p>";
+  banco
+    .ref("publicacoes")
+    .once("value")
+    .then((snapshot) => {
+      painelPublicacoes.innerHTML = "";
+      painelPublicacoes.style.display = "flex";
+      painelPublicacoes.style.flexWrap = "wrap";
+      painelPublicacoes.style.gap = "16px";
+
+      snapshot.forEach((child) => {
+        const pub = child.val();
+        const id = child.key;
+
+        const card = document.createElement("div");
+        card.className = "card shadow";
+        card.style.width = "300px";
+        card.style.height = "420px";
+        card.style.flex = "0 0 auto";
+        card.style.display = "flex";
+        card.style.flexDirection = "column";
+        card.style.justifyContent = "space-between";
+        card.style.overflow = "hidden";
+
+        card.innerHTML = `
+            <img src="${pub.capa}" class="card-img-top img-fluid" alt="${pub.titulo}" 
+                style="height: 180px; object-fit: cover;">
+
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title" style="
+                    font-size: 1.1rem;
+                    line-height: 1.3;
+                    max-height: 2.6em; /* ~2 linhas */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                ">${pub.titulo}</h5>
+
+                <p class="card-text text-muted" style="
+                    font-size: 0.9rem;
+                    line-height: 1.3;
+                    max-height: 3.9em; /* ~3 linhas */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                ">${pub.descricao}</p>
+
+                <div class="mt-auto d-flex justify-content-between">
+                <button class="btn btn-sm btn-primary btn-editar">Editar</button>
+                <button class="btn btn-sm btn-danger btn-excluir">Excluir</button>
+                </div>
+            </div>
+            `;
+
+        // Botão para editar
+        card.querySelector(".btn-editar").addEventListener("click", () => {
+          window.location.href = `criar-publicacao.html?id=${id}`;
+        });
+
+        // Botão para excluir
+        card.querySelector(".btn-excluir").addEventListener("click", () => {
+          if (confirm(`Confirma a exclusão da publicação "${pub.titulo}"?`)) {
+            deletarPublicacao(id)
+              .then(() => {
+                alert("Publicação excluída com sucesso!");
+                carregarPainelPublicacoes();
+              })
+              .catch((err) => {
+                console.error("Erro ao excluir publicação:", err);
+                alert("Erro ao excluir publicação. Veja console.");
+              });
+          }
+        });
+
+        painelPublicacoes.appendChild(card);
+      });
+
+      if (!snapshot.exists()) {
+        painelPublicacoes.innerHTML = "<p>Nenhuma publicação cadastrada.</p>";
+      }
+    })
+    .catch((err) => {
+      console.error("Erro ao carregar publicações:", err);
+      painelPublicacoes.innerHTML = "<p>Erro ao carregar publicações.</p>";
+    });
+}
+
 // Exibe o painel no carregamento
 window.addEventListener("DOMContentLoaded", () => {
   if (seletorPainel.value === "noticias") {
     painelNoticias.style.display = "flex";
-    painelExposicoes.style.display = "none";
+    painelPublicacoes.style.display = "none";
+    painelMensagens.style.display = "none";
     carregarPainelNoticias();
+  } else if (seletorPainel.value === "publicacoes") {
+    painelNoticias.style.display = "none";
+    painelExposicoes.style.display = "flex";
+    painelMensagens.style.display = "none";
+    carregarPainelPublicacoes();
   } else {
     painelNoticias.style.display = "none";
-    painelExposicoes.style.display = "block";
+    painelPublicacoes.style.display = "none";
+    painelMensagens.style.display = "block";
+    carregarPainelMensagens();
   }
 });
 
@@ -149,10 +257,17 @@ document.querySelector("main").appendChild(painelMensagens);
 seletorPainel.addEventListener("change", () => {
   if (seletorPainel.value === "noticias") {
     painelNoticias.style.display = "flex";
+    painelPublicacoes.style.display = "none";
     painelMensagens.style.display = "none";
     carregarPainelNoticias();
-  } else if (seletorPainel.value === "mensagens") {
+  } else if (seletorPainel.value === "publicacoes") {
     painelNoticias.style.display = "none";
+    painelPublicacoes.style.display = "flex";
+    painelMensagens.style.display = "none";
+    carregarPainelPublicacoes();
+  } else {
+    painelNoticias.style.display = "none";
+    painelPublicacoes.style.display = "none";
     painelMensagens.style.display = "block";
     carregarPainelMensagens();
   }
@@ -187,20 +302,15 @@ function carregarPainelMensagens() {
 
         card.innerHTML = `
           <span style="position:absolute; bottom:10px; right:10px; font-size:0.8rem; color:#666">${data}</span>
-          <h5 style="font-size:1rem; margin-bottom:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${
-            msg.nome
+          <h5 style="font-size:1rem; margin-bottom:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${msg.nome
           }</h5>
-          <p style="font-size:0.85rem; margin-bottom:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${
-            msg.email
+          <p style="font-size:0.85rem; margin-bottom:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${msg.email
           }</p>
-          <strong style="font-size:0.9rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${
-            msg.assunto
+          <strong style="font-size:0.9rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${msg.assunto
           }</strong>
-          <p style="font-size:0.85rem; margin-top:4px; max-height:3em; overflow:hidden;">${
-            msg.mensagem
+          <p style="font-size:0.85rem; margin-top:4px; max-height:3em; overflow:hidden;">${msg.mensagem
           }</p>
-          <button class="btn btn-sm ${
-            msg.lida ? "btn-danger" : "btn-success"
+          <button class="btn btn-sm ${msg.lida ? "btn-danger" : "btn-success"
           } mt-2">
             ${msg.lida ? "Marcar como não lida" : "Confirmar leitura"}
           </button>
